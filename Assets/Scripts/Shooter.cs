@@ -9,7 +9,7 @@ public class Shooter : MonoBehaviour
     private Camera _cam;
     [SerializeField] private float _force = 10;
     [SerializeField] private GameObject _bulletHolePreab;
-    [SerializeField] private GameObject _pauseUI;
+    
     
     void Start()
     {
@@ -19,6 +19,7 @@ public class Shooter : MonoBehaviour
     
     void Update()
     {
+        
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePos = Input.mousePosition;

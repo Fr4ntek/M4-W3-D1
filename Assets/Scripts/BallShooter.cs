@@ -9,15 +9,18 @@ public class BallShooter : MonoBehaviour
     [SerializeField] GameObject _spherePrefab;
     private float _sphereRadius;
     private Camera _cam;
+    [SerializeField] private PauseMenu _pauseUI;
 
     void Start()
     {
         _cam = GetComponent<Camera>();
         _sphereRadius = _spherePrefab.GetComponent<SphereCollider>().radius;
+        _pauseUI = FindAnyObjectByType<PauseMenu>();
     }
 
     void Update()
     {
+        if (_pauseUI.GameState.Equals(PauseMenu.GAME_STATE.PAUSED)) return;
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 mousePos = Input.mousePosition;
